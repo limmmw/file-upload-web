@@ -1,18 +1,27 @@
-version: '3'
+version: '3.8'
 services:
-  nginx:
+  web:
     image: nginx:latest
     ports:
       - "8000:80"
     volumes:
-      - ./php:/var/www/html
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - ./uploads:/var/www/html/uploads
+      - ./src:/var/www/html
+      - uploads:/var/www/html/uploads
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
-      - php-fpm
-
-  php-fpm:
-    build: ./php
+      - php
+    environment:
+      - NGINX_WORKER_PROCESSES=auto
+      - NGINX_CLIENT_MAX_BODY_SIZE=10M
+  
+  php:
+    build: .
     volumes:
-      - ./php:/var/www/html
-      - ./uploads:/var/www/html/uploads
+      - ./src:/var/www/html
+      - uploads:/var/www/html/uploads
+    environment:
+      - UPLOAD_MAX_FILESIZE=10M
+      - POST_MAX_SIZE=10M
+
+volumes:
+  uploads:
