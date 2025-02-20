@@ -10,7 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
 
     if (move_uploaded_file($file['tmp_name'], $destination)) {
         echo "File uploaded successfully!";
-    } else {
+    } 
+    else {
         echo "File upload failed!";
     }
 }
