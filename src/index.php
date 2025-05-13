@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 500000) {
+    if ($_FILES["fileToUpload"]["size"] > 10737418241073741824) {
         echo "Maaf, ukuran file terlalu besar.";
         $uploadOk = 0;
     }
