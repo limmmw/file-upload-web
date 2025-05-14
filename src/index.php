@@ -5,19 +5,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     
-    // Check if file already exists
     if (file_exists($target_file)) {
         echo "Maaf, file sudah ada.";
         $uploadOk = 0;
     }
     
-    // Check file size
     if ($_FILES["fileToUpload"]["size"] > 10737418241073741824) {
         echo "Maaf, ukuran file terlalu besar.";
         $uploadOk = 0;
     }
     
-    // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
         echo "Maaf, file tidak dapat diupload.";
     } else {
