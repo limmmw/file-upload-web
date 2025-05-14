@@ -6,22 +6,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     
     if (file_exists($target_file)) {
-        echo "Maaf, file sudah ada.";
+        echo "File sudah ada.";
         $uploadOk = 0;
     }
     
     if ($_FILES["fileToUpload"]["size"] > 10737418241073741824) {
-        echo "Maaf, ukuran file terlalu besar.";
+        echo "Ukuran file terlalu besar.";
         $uploadOk = 0;
     }
     
     if ($uploadOk == 0) {
-        echo "Maaf, file tidak dapat diupload.";
+        echo "File tidak dapat diupload.";
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             echo "File ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " berhasil diupload.";
         } else {
-            echo "Maaf, terjadi error saat mengupload file.";
+            echo "Terjadi error saat mengupload file.";
         }
     }
 }
