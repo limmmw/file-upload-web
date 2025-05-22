@@ -3,7 +3,7 @@ services:
   web:
     image: nginx:latest
     ports:
-      - "8000:80"
+      - "8080:80"
     volumes:
       - ./src:/var/www/html
       - uploads:/var/www/html/uploads
