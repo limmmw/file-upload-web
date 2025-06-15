@@ -33,22 +33,6 @@ server {
         deny all;
     }
 
-    location ^~ /uploads/ {
-    location ~ \.php$ {
-        return 403; # Blokir akses file .php
-    }
-    location ~ \.sh$ {
-        return 403;
-    }
-    location ~ \.py$ {
-        return 403;
-    }
-    location ~ \.pl$ {
-        return 403;
-    }
-}
-
-
     gzip on;
     gzip_vary on;
     gzip_min_length 10240;
