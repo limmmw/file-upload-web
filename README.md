@@ -1,6 +1,6 @@
-# file-upload-web
+# File-upload-web
 
-for uploading file, builded with docker container
+For uploading file on a local network, built by docker container
 
 1. Installation:
    ```bash
@@ -8,7 +8,7 @@ for uploading file, builded with docker container
    cd file-upload-web
    docker-compose up -d
 
-2. if the web fails uploading file, do this commands:
+2. If the web fails as uploading file, do this commands:
    ```bash
    docker-compose down -v
    sudo chown -R yourusername:www-data file-upload-web
