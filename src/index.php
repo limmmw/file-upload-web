@@ -6,22 +6,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     
     if (file_exists($target_file)) {
-        echo "File sudah ada.";
+        echo "<div class='notification error'>File already exists.</div>";
         $uploadOk = 0;
     }
     
     if ($_FILES["fileToUpload"]["size"] > 10737418241073741824) {
-        echo "Ukuran file terlalu besar.";
+        echo "<div class='notification error'>Ukuran file terlalu besar.</div>";
         $uploadOk = 0;
     }
     
     if ($uploadOk == 0) {
-        echo "File tidak dapat diupload.";
+        echo "<div class='notification error'>File cannot be uploaded.</div>";
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            echo "File ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " berhasil diupload.";
+            echo "<div class='notification success'>File ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " successfully uploaded.</div>";
         } else {
-            echo "Terjadi error saat mengupload file.";
+            echo "<div class='notification error'>Error occurred when uploading the file.</div>";
         }
     }
 }
@@ -32,41 +32,129 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <title>Upload File</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            background-attachment: fixed;
+            color: #e0e0e0;
         }
-        .upload-form {
-            border: 2px solid #ddd;
-            padding: 20px;
-            border-radius: 8px;
+
+        .container {
+            max-width: 480px;
+            margin: 80px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.05);
+            padding: 40px;
+            backdrop-filter: blur(10px);
         }
-        .button {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 10px 20px;
+
+        h2 {
+            margin-top: 0;
+            font-size: 26px;
+            font-weight: 600;
+            color: #ffffff;
             text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
+            letter-spacing: 1px;
+        }
+
+        .upload-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        input[type="file"] {
+            padding: 12px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        input[type="file"]::file-selector-button {
+            background-color: #00c9ff;
+            border: none;
+            padding: 8px 16px;
+            color: #fff;
+            border-radius: 8px;
             cursor: pointer;
-            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            background-color: #00a7d7;
+        }
+
+        .button {
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            border: none;
+            color: #ffffff;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .button:hover {
+            background: linear-gradient(to right, #0072ff, #00c6ff);
+        }
+
+        .notification {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 16px;
+            border-radius: 12px;
+            font-weight: 500;
+            text-align: center;
+            backdrop-filter: blur(6px);
+        }
+
+        .notification.success {
+            background: rgba(0, 255, 127, 0.15);
+            color: #00ff9d;
+            border: 1px solid rgba(0, 255, 127, 0.3);
+        }
+
+        .notification.error {
+            background: rgba(255, 0, 60, 0.1);
+            color: #ff6b6b;
+            border: 1px solid rgba(255, 0, 60, 0.3);
+        }
+
+        label {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .credit {
+            margin-top: 20px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 14px;
+            text-align: center;
+            color: #9bd3ff;
+            letter-spacing: 1px;
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
-    <div class="upload-form">
+    <div class="container">
         <h2>Upload File</h2>
-        <form action="index.php" method="post" enctype="multipart/form-data">
-            Pilih file untuk diupload:
-            <br><br>
+        <form class="upload-form" action="index.php" method="post" enctype="multipart/form-data">
+            <label for="fileToUpload">Select file to upload:</label>
             <input type="file" name="fileToUpload" id="fileToUpload">
-            <br><br>
             <input type="submit" value="Upload File" name="submit" class="button">
+            <div class="credit">Developed by limmmw</div>
         </form>
     </div>
 </body>
