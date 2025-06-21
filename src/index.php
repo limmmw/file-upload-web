@@ -1,28 +1,31 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $target_dir = "uploads/";
-    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-    
-    if (file_exists($target_file)) {
-        echo "<div class='notification error'>File already exists.</div>";
-        $uploadOk = 0;
-    }
-    
-    if ($_FILES["fileToUpload"]["size"] > 10737418241073741824) {
-        echo "<div class='notification error'>Ukuran file terlalu besar.</div>";
-        $uploadOk = 0;
-    }
-    
-    if ($uploadOk == 0) {
-        echo "<div class='notification error'>File cannot be uploaded.</div>";
-    } else {
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            echo "<div class='notification success'>File ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " successfully uploaded.</div>";
-        } else {
-            echo "<div class='notification error'>Error occurred when uploading the file.</div>";
+    if (isset($_FILES["fileToUpload"]) && is_uploaded_file($_FILES["fileToUpload"]["tmp_name"])) {
+        $uploadOk = 1;
+        $target_dir = "uploads/";
+        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+        if (file_exists($target_file)) {
+            echo "<div class='notification error'>File already exists.</div>";
+            $uploadOk = 0;
         }
+
+        if ($_FILES["fileToUpload"]["size"] > 1048576000000) {
+            echo "<div class='notification error'>File size is too large. Maximum allowed is 100 MB.</div>";
+            $uploadOk = 0;
+        }
+
+        if ($uploadOk == 1) {
+            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                echo "<div class='notification success'>File <strong>" . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . "</strong> was successfully uploaded.</div>";
+            } else {
+                echo "<div class='notification error'>An error occurred while uploading the file.</div>";
+            }
+        } 
+
+    } else {
+        echo "<div class='notification error'>No file selected.</div>";
     }
 }
 ?>
