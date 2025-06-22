@@ -25,8 +25,8 @@ Replace ``yourusername`` with your actual Linux username.
    ```bash
    nano docker-compose.yml
 
-- Change to:
-  ```bash
+Change this line:
+```bash
   web:
     image: nginx:latest
     ports:
@@ -35,14 +35,15 @@ Replace ``yourusername`` with your actual Linux username.
       - ./src:/var/www/html
       - /home/yourusername/Server:/var/www/html/uploads #Replace ``yourusername`` with your actual Linux username.
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
-- And:
+```
+And:
   ```bash
    php:
     build: .
     volumes:
       - ./src:/var/www/html
       - /home/yourusername/Server:/var/www/html/uploads #Replace ``yourusername`` with your actual Linux username.
-
+```
 Make sure the path /home/yourusername/Server matches what you created earlier.
 
 3. ▶️ Start the App:
@@ -70,7 +71,8 @@ Uploaded files are saved directly to:
 This allows you to access uploaded files without entering the project folder.
 
 ## 🌐 Accessing the Web Interface
-http://localhost:8080
+```http://localhost:8080```
+
 
 ## ✅ Requirements
 - Docker & Docker Compose
