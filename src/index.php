@@ -148,6 +148,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             letter-spacing: 1px;
             opacity: 0.8;
         }
+
+        .credit2 {
+            margin-top: 0px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 14px;
+            text-align: center;
+            color: #9bd3ff;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
@@ -158,6 +168,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Upload File" name="submit" class="button">
             <div class="credit">Developed by limmmw</div>
+            <div class="credit2">https://github.com/limmmw</div>
         </form>
     </div>
 </body>
