@@ -1,0 +1,2 @@
+cat /www/server/php/83/etc/php-fpm.d/www.conf.default | grep '^user\|^group'
+www or www-data
