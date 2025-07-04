@@ -6,7 +6,7 @@ $files = array_diff(scandir($uploadDir), ['.', '..']);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>File List</title>
+    <title>Daftar File</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap');
 
@@ -90,10 +90,10 @@ $files = array_diff(scandir($uploadDir), ['.', '..']);
 </head>
 <body>
     <div class="container">
-        <h2>SAVED FILE</h2>
+        <h2>File Tersimpan</h2>
 
         <?php if (empty($files)): ?>
-            <p>No File in Folder.</p>
+            <p>Tidak ada file dalam folder uploads.</p>
         <?php else: ?>
             <ul class="file-list">
                 <?php foreach ($files as $file): ?>
@@ -105,7 +105,7 @@ $files = array_diff(scandir($uploadDir), ['.', '..']);
             </ul>
         <?php endif; ?>
 
-        <div class="credit">Developed by limmmw | <a href="index.php" style="color: #00c9ff; text-decoration: underline;">Back To Upload Page</a></div>
+        <div class="credit">Developed by limmmw | <a href="index.php" style="color: #00c9ff; text-decoration: underline;">Upload lagi</a></div>
     </div>
 </body>
 </html>

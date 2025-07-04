@@ -1,0 +1,9 @@
+<form class="upload-form" action="index.php" method="post" enctype="multipart/form-data">
+    <label for="fileToUpload">Select file to upload:</label>
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload File" name="submit" class="button">
+    <a href="file.php" class="button" style="text-align:center; display:block; margin-top:10px; background: linear-gradient(to right, #4facfe, #00f2fe); text-decoration: none;">Lihat File Tersimpan</a>
+    <div class="credit">Developed by limmmw</div>
+    <div class="credit2">https://github.com/limmmw</div>
+</form>
+
