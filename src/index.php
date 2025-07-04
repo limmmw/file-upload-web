@@ -158,6 +158,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             letter-spacing: 1px;
             opacity: 0.8;
         }
+
+        a.button {
+        display: inline-block;
+        text-align: center;
+        padding: 14px;
+        font-size: 16px;
+        font-weight: 500;
+        border-radius: 10px;
+        color: #ffffff;
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        text-decoration: none;
+        transition: background 0.3s ease;
+        }
+
+a.button:hover {
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
     </style>
 </head>
 <body>
@@ -167,6 +185,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="fileToUpload">Select file to upload:</label>
             <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Upload File" name="submit" class="button">
+            <a href="file.php" class="button">View Saved File</a>
             <div class="credit">Developed by limmmw</div>
             <div class="credit2">https://github.com/limmmw</div>
         </form>
