@@ -149,8 +149,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             opacity: 0.8;
         }
 
+        .head {
+            margin-top: 10px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 30px;
+            text-align: center;
+            color:rgb(243, 245, 247);
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
         .credit2 {
             margin-top: 0px;
+            margin-bottom: 0px;
             font-family: 'Rajdhani', sans-serif;
             font-size: 14px;
             text-align: center;
@@ -207,7 +218,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="container">
-        <h2>Upload File</h2>
+        <h2 class="head">Upload File</h2>
         <div id="loading-bar"></div>
         <div id="progress-text" style="text-align:center; font-weight:bold; color:#9bd3ff; margin-bottom:20px; display:none;">0%</div>
         <form id="uploadForm" class="upload-form" action="index.php" method="post" enctype="multipart/form-data">
@@ -216,9 +227,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="submit" value="Upload File" name="submit" class="button">
             <a href="file.php" class="button">View Saved File</a>
             <div class="credit">Developed by limmmw</div>
-            <div class="credit2">https://github.com/limmmw</div>
-        </form>
-    </div>
+            <div class="credit2">Instagram <a href="https://instagram.com/limmmw" style="color: #00c9ff; text-decoration: underline;">@limmmw</a></div>
+            <div class="credit2"> <a href="https://github.com/limmmw" style="color: #00c9ff; text-decoration: underline;">Github.com/limmmw</a></div>
+    </div> 
     <script>
     const form = document.getElementById('uploadForm');
     const loadingBar = document.getElementById('loading-bar');
