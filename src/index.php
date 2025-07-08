@@ -172,16 +172,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         transition: background 0.3s ease;
         }
 
-a.button:hover {
-    background: linear-gradient(to right, #0072ff, #00c6ff);
-}
+        a.button:hover {
+        background: linear-gradient(to right, #0072ff, #00c6ff);
+        }
+
+        #loading-bar {
+        width: 100%;
+        height: 6px;
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 20px;
+        display: none;
+        }
+
+        #loading-bar::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 40%;
+        background: rgba(255, 255, 255, 0.5);
+        animation: loadingMove 1.5s linear infinite;
+        border-radius: 8px;
+        }
+
+        @keyframes loadingMove {
+        0% { left: -40%; }
+        50% { left: 30%; }
+        100% { left: 100%; }
+        }
 
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Upload File</h2>
-        <form class="upload-form" action="index.php" method="post" enctype="multipart/form-data">
+        <div id="loading-bar"></div>
+        <div id="progress-text" style="text-align:center; font-weight:bold; color:#9bd3ff; margin-bottom:20px; display:none;">0%</div>
+        <form id="uploadForm" class="upload-form" action="index.php" method="post" enctype="multipart/form-data">
             <label for="fileToUpload">Select file to upload:</label>
             <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Upload File" name="submit" class="button">
@@ -190,5 +219,46 @@ a.button:hover {
             <div class="credit2">https://github.com/limmmw</div>
         </form>
     </div>
+    <script>
+    const form = document.getElementById('uploadForm');
+    const loadingBar = document.getElementById('loading-bar');
+    const progressText = document.getElementById('progress-text');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault(); // Stop form dari reload halaman
+
+        const fileInput = document.getElementById('fileToUpload');
+        const file = fileInput.files[0];
+        if (!file) return;
+
+        const formData = new FormData();
+        formData.append('fileToUpload', file);
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'index.php', true);
+
+        // Tampilkan bar dan persentase
+        loadingBar.style.display = 'block';
+        progressText.style.display = 'block';
+
+        xhr.upload.onprogress = function (e) {
+            if (e.lengthComputable) {
+                const percent = Math.round((e.loaded / e.total) * 100);
+                progressText.innerText = percent + '%';
+            }
+        };
+
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                // Ganti isi halaman dengan respons dari PHP
+                document.body.innerHTML = xhr.responseText;
+            } else {
+                progressText.innerText = 'Upload failed!';
+            }
+        };
+
+        xhr.send(formData);
+    });
+</script>
 </body>
 </html>
