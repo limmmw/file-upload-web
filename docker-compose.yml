@@ -3,7 +3,7 @@ services:
   web:
     image: nginx:latest
     ports:
-      - "8080:80"
+      - "6969:80"
     volumes:
       - ./src:/var/www/html
       - /home/suguru/Server:/var/www/html/uploads
