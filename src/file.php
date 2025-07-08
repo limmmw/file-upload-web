@@ -1,6 +1,34 @@
 <?php
 $uploadDir = 'uploads/';
 $files = array_diff(scandir($uploadDir), ['.', '..']);
+
+// Handler download
+if (isset($_GET['file'])) {
+    $file = basename($_GET['file']); // amankan nama file
+    $filePath = $uploadDir . $file;
+
+    if (file_exists($filePath)) {
+        // Tentukan MIME type
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $mime = finfo_file($finfo, $filePath);
+        finfo_close($finfo);
+
+        // Header untuk force download
+        header('Content-Description: File Transfer');
+        header('Content-Type: ' . $mime);
+        header('Content-Disposition: attachment; filename="' . basename($filePath) . '"');
+        header('Content-Length: ' . filesize($filePath));
+        header('Pragma: public');
+        header('Cache-Control: must-revalidate');
+        flush();
+        readfile($filePath);
+        exit;
+    } else {
+        http_response_code(404);
+        echo "File not found.";
+        exit;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -99,7 +127,7 @@ $files = array_diff(scandir($uploadDir), ['.', '..']);
                 <?php foreach ($files as $file): ?>
                     <li>
                         <span class="file-name"><?= htmlspecialchars($file) ?></span>
-                        <a class="download-btn" href="<?= $uploadDir . rawurlencode($file) ?>" download>Download</a>
+                        <a class="download-btn" href="?file=<?= rawurlencode($file) ?>">Download</a>
                     </li>
                 <?php endforeach; ?>
             </ul>
@@ -109,4 +137,3 @@ $files = array_diff(scandir($uploadDir), ['.', '..']);
     </div>
 </body>
 </html>
-
