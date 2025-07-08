@@ -161,7 +161,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         .credit2 {
             margin-top: 0px;
-            margin-bottom: 0px;
             font-family: 'Rajdhani', sans-serif;
             font-size: 14px;
             text-align: center;
