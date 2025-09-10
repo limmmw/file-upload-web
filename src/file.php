@@ -1,6 +1,6 @@
 <?php
 $uploadDir = 'uploads/';
-$files = array_diff(scandir($uploadDir), ['.', '..']);
+$files = array_diff(scandir($uploadDir), ['.', '..', '.htaccess']); // tambahkan '.htaccess' di sini
 
 // Handler download
 if (isset($_GET['file'])) {
