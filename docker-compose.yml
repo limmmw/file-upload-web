@@ -6,7 +6,7 @@ services:
       - "6969:80"
     volumes:
       - ./src:/var/www/html
-      - /home/suguru/Server:/var/www/html/uploads
+      - /home/snowfall/Server:/var/www/html/uploads
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - php
@@ -18,7 +18,7 @@ services:
     build: .
     volumes:
       - ./src:/var/www/html
-      - /home/suguru/Server:/var/www/html/uploads
+      - /home/snowfall/Server:/var/www/html/uploads
     environment:
       - UPLOAD_MAX_FILESIZE=1024M
       - POST_MAX_SIZE=1024M

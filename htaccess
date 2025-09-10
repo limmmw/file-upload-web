@@ -1,0 +1,6 @@
+# Nonaktifkan eksekusi script di folder ini. pindahkan file ini ke direktori Server di home dan namakan menjadi ".htaccess"
+php_flag engine off
+RemoveHandler .php .php3 .php4 .php5 .phtml .pl .py .jsp .asp .aspx .sh .cgi .htm .html .js .exe .bat
+
+# (Opsional) Paksa download untuk file tertentu agar tidak dirender di browser
+AddType application/octet-stream .php .php3 .php4 .php5 .phtml .pl .py .jsp .asp .aspx .sh .cgi .htm .html .js .exe .bat
