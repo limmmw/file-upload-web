@@ -114,6 +114,41 @@ if (isset($_GET['file'])) {
             letter-spacing: 1px;
             opacity: 0.8;
         }
+
+        @media (max-width: 600px) {
+       .container {
+        max-width: 98vw;
+        margin: 20px 1vw;
+        padding: 18px 6px;
+        border-radius: 12px;
+        }
+        h2, .head {
+        font-size: 20px;
+        }
+        .upload-form, ul.file-list {
+        gap: 10px;
+        }
+        input[type="file"], .button, a.button, .download-btn {
+        font-size: 13px;
+        padding: 10px;
+        }
+        .notification {
+        padding: 10px;
+        font-size: 13px;
+        }
+        ul.file-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 8px;
+        font-size: 13px;
+        }
+        .file-name {
+        margin-bottom: 6px;
+        }
+        .credit, .credit2 {
+        font-size: 12px;
+        }
+}
     </style>
 </head>
 <body>

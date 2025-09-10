@@ -213,6 +213,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         100% { left: 100%; }
         }
 
+         @media (max-width: 600px) {
+    .container {
+        max-width: 100vw;
+        width: 100vw;
+        margin: 0;
+        padding: 7vw 3vw 7vw 3vw;
+        border-radius: 0;
+        box-sizing: border-box;
+    }
+    h2, .head {
+        font-size: 26px;
+    }
+    .upload-form, ul.file-list {
+        gap: 18px;
+    }
+    input[type="file"], .button, a.button, .download-btn {
+        font-size: 18px;
+        padding: 16px;
+    }
+    .notification {
+        padding: 16px;
+        font-size: 16px;
+    }
+    ul.file-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 8px;
+        font-size: 16px;
+    }
+    .file-name {
+        margin-bottom: 10px;
+    }
+    .credit, .credit2 {
+        font-size: 15px;
+    }
+}
+
     </style>
 </head>
 <body>
