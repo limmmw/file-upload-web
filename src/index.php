@@ -96,15 +96,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .button {
-            background: linear-gradient(to right, #00c6ff, #0072ff);
-            border: none;
-            color: #ffffff;
-            padding: 14px;
-            font-size: 16px;
-            font-weight: 500;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background 0.3s ease;
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        border: none;
+        color: #ffffff;
+        padding: 14px;
+        font-size: 16px;
+        font-weight: 600;
+        font-family: 'Rajdhani', sans-serif;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        text-align: center;
         }
 
         .button:hover {
@@ -142,7 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .credit {
             margin-top: 20px;
             font-family: 'Rajdhani', sans-serif;
-            font-size: 14px;
+            font-size: 15px;
             text-align: center;
             color: #9bd3ff;
             letter-spacing: 1px;
@@ -161,6 +163,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         .credit2 {
             margin-top: 0px;
+            margin-bottom: -20px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 15px;
+            text-align: center;
+            color: #9bd3ff;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .credit3 {
+            margin-top: 0px;
             font-family: 'Rajdhani', sans-serif;
             font-size: 14px;
             text-align: center;
@@ -174,7 +187,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         text-align: center;
         padding: 14px;
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 600;
         border-radius: 10px;
         color: #ffffff;
         background: linear-gradient(to right, #00c6ff, #0072ff);
@@ -262,9 +275,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Upload File" name="submit" class="button">
             <a href="list.php" class="button">View Saved File</a>
-            <div class="credit">Developed by limmmw</div>
-            <div class="credit2">Instagram <a href="https://instagram.com/limmmw" style="color: #00c9ff; text-decoration: underline;">@limmmw</a></div>
-            <div class="credit2"> <a href="https://github.com/limmmw" style="color: #00c9ff; text-decoration: underline;">Github.com/limmmw</a></div>
+            <div class="credit">Developed by limmmw®</div>
+            <div class="credit2">Contact Me</div>
+            <div class="credit3"> 
+                <a href="https://github.com/limmmw" style="color: #00c9ff; text-decoration: underline;">Github.com/limmmw</a> | 
+                <a href="https://nightcoding.my.id" style="color: #00c9ff; text-decoration: underline;">nightcoding.my.id</a> |
+                <a href="https://instagram.com/limmmw" style="color: #00c9ff; text-decoration: underline;">Instagram@limmmw</a>
+            </div>
     </div> 
     <script>
     const form = document.getElementById('uploadForm');

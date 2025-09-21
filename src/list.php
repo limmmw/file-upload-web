@@ -94,7 +94,8 @@ if (isset($_GET['file'])) {
             color: #ffffff;
             padding: 8px 14px;
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 600;
+            font-family: 'Rajdhani', sans-serif;
             border-radius: 8px;
             cursor: pointer;
             transition: background 0.3s ease;
@@ -108,7 +109,7 @@ if (isset($_GET['file'])) {
         .credit {
             margin-top: 30px;
             font-family: 'Rajdhani', sans-serif;
-            font-size: 14px;
+            font-size: 16px;
             text-align: center;
             color: #9bd3ff;
             letter-spacing: 1px;
