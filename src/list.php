@@ -35,6 +35,7 @@ if (isset($_GET['file'])) {
 <html>
 <head>
     <title>File List</title>
+    <link rel="icon" type="image/png" href="assets/favicon1.png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap');
 
