@@ -34,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Upload File</title>
+    <link rel="icon" type="image/png" href="assets/favicon1.png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap');
 
@@ -162,7 +163,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .credit2 {
-            margin-top: 0px;
+            margin-top: -10px;
             margin-bottom: -20px;
             font-family: 'Rajdhani', sans-serif;
             font-size: 15px;
