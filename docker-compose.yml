@@ -1,4 +1,4 @@
-version: '3.8'
+#version: '3.8'
 services:
   web:
     image: nginx:latest
@@ -17,8 +17,9 @@ services:
   php:
     build: .
     volumes:
-      - ./src:/var/www/html
+      - ./:/var/www/html
       - /home/snowfall/Server:/var/www/html/uploads
+      - ./composer.json:/var/www/html/composer.json
     environment:
       - UPLOAD_MAX_FILESIZE=1024M
       - POST_MAX_SIZE=1024M

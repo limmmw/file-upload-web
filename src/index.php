@@ -275,7 +275,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="fileToUpload">Select file to upload:</label>
             <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Upload File" name="submit" class="button">
-            <a href="list.php" class="button">View Saved File</a>
+            <a href="list.php" class="button">Saved File</a>
             <div class="credit">Developed by limmmw®</div>
             <div class="credit2">Contact Me</div>
             <div class="credit3"> 
