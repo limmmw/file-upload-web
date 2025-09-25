@@ -17,24 +17,29 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Cache Docker layers
-        uses: actions/cache@v4
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
-
-      - name: Build images with Docker Compose
+      - name: Build services
         run: docker compose build
 
-      - name: Run services with Docker Compose
+      - name: Run services
         run: docker compose up -d
 
-      # Contoh step testing
-      - name: Run tests
+      - name: Wait for php service to be healthy
         run: |
-          docker compose exec -T app pytest --maxfail=1 --disable-warnings -q
+          for i in {1..10}; do
+            if docker compose ps php | grep "Up"; then
+              echo "PHP service is running!"
+              exit 0
+            fi
+            echo "Waiting for php service..."
+            sleep 5
+          done
+          echo "PHP service did not start in time"
+          docker compose logs php
+          exit 1
+
+      - name: Run PHP tests
+        run: |
+          docker compose exec -T php vendor/bin/phpunit --testdox
 
       - name: Tear down
         if: always()
