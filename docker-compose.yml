@@ -5,7 +5,7 @@ services:
     ports:
       - "6969:80"
     volumes:
-      - ./src:/var/www/html/src
+      - ./src:/var/www/html
       - /home/snowfall/Server:/var/www/html/uploads
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
