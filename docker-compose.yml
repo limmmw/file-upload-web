@@ -17,7 +17,7 @@ services:
   php:
     build: .
     volumes:
-      - ./src:/var/www/html
+      - ./:/var/www/html
       - /home/snowfall/Server:/var/www/html/uploads
       - ./composer.json:/var/www/html/composer.json
     environment:
