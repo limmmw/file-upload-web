@@ -158,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-size: 30px;
             text-align: center;
             color:rgb(243, 245, 247);
-            letter-spacing: 1px;
+            letter-spacing: 1px;  - /home/sno
             opacity: 0.8;
         }
 
