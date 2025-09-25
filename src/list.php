@@ -170,7 +170,7 @@ if (isset($_GET['file'])) {
             </ul>
         <?php endif; ?>
 
-        <div class="credit">Developed by limmmw | <a href="index.php" style="color: #00c9ff; text-decoration: underline;">Back To Upload Page</a></div>
+        <div class="credit">Developed by limmmw® | <a href="index.php" style="color: #00c9ff; text-decoration: underline;">Back To Upload Page</a></div>
     </div>
 </body>
 </html>
