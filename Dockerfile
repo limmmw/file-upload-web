@@ -2,7 +2,7 @@ FROM php:8.2-fpm
 
 # Install ekstensi
 RUN apt-get update && \
-    apt-get install -y unzip && \
+    apt-get install -y unzip libzip-dev && \
     docker-php-ext-install zip opcache
 
 # Install Composer
