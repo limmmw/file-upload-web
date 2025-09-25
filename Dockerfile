@@ -5,8 +5,8 @@ RUN apt-get update && \
     apt-get install -y php-zip unzip && \
     docker-php-ext-install opcache
 
-# Tambahkan Composer (copy dari official image)
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Set upload size
 RUN echo "upload_max_filesize=1024M" > /usr/local/etc/php/conf.d/uploads.ini && \
