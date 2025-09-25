@@ -11,3 +11,5 @@ RUN echo "upload_max_filesize=1024M" > /usr/local/etc/php/conf.d/uploads.ini && 
     echo "post_max_size=1024M" >> /usr/local/etc/php/conf.d/uploads.ini
 
 WORKDIR /var/www/html
+
+COPY composer.json /var/www/html/composer.json
