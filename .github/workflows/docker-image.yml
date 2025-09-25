@@ -23,6 +23,11 @@ jobs:
       - name: Run services
         run: docker compose up -d
 
+      - name: Install PHP zip extension and unzip
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y php-zip unzip
+
       - name: Wait for php service to be healthy
         run: |
           for i in {1..10}; do

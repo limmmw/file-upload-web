@@ -1,7 +1,9 @@
 FROM php:8.2-fpm
 
 # Install ekstensi
-RUN docker-php-ext-install opcache
+RUN apt-get update && \
+    apt-get install -y php-zip unzip && \
+    docker-php-ext-install opcache
 
 # Tambahkan Composer (copy dari official image)
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
