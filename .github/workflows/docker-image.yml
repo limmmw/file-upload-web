@@ -46,7 +46,7 @@ jobs:
         run: docker compose exec -T php composer install --no-interaction --prefer-dist --no-progress
 
       - name: Run PHPUnit tests
-        run: docker compose exec -T php vendor/bin/phpunit --testdox
+        run: docker compose exec -T php vendor/bin/phpunit --configuration phpunit.xml
 
       - name: Tear down
         if: always()
