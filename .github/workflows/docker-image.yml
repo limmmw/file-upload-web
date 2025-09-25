@@ -37,9 +37,11 @@ jobs:
           docker compose logs php
           exit 1
 
-      - name: Run PHP tests
-        run: |
-          docker compose exec -T php vendor/bin/phpunit --testdox
+      - name: Install Composer dependencies
+        run: docker compose exec -T php composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Run PHPUnit tests
+        run: docker compose exec -T php vendor/bin/phpunit --testdox
 
       - name: Tear down
         if: always()
