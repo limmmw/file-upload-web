@@ -2,18 +2,15 @@
 $uploadDir = 'uploads/';
 $files = array_diff(scandir($uploadDir), ['.', '..', '.htaccess']); // tambahkan '.htaccess' di sini
 
-// Handler download
 if (isset($_GET['file'])) {
-    $file = basename($_GET['file']); // amankan nama file
+    $file = basename($_GET['file']);
     $filePath = $uploadDir . $file;
 
     if (file_exists($filePath)) {
-        // Tentukan MIME type
         $finfo = finfo_open(FILEINFO_MIME_TYPE);
         $mime = finfo_file($finfo, $filePath);
         finfo_close($finfo);
 
-        // Header untuk force download
         header('Content-Description: File Transfer');
         header('Content-Type: ' . $mime);
         header('Content-Disposition: attachment; filename="' . basename($filePath) . '"');

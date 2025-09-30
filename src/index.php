@@ -290,7 +290,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     const progressText = document.getElementById('progress-text');
 
     form.addEventListener('submit', function (e) {
-        e.preventDefault(); // Stop form dari reload halaman
+        e.preventDefault(); 
 
         const fileInput = document.getElementById('fileToUpload');
         const file = fileInput.files[0];
@@ -302,7 +302,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         const xhr = new XMLHttpRequest();
         xhr.open('POST', 'index.php', true);
 
-        // Tampilkan bar dan persentase
         loadingBar.style.display = 'block';
         progressText.style.display = 'block';
 
@@ -315,7 +314,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         xhr.onload = function () {
             if (xhr.status === 200) {
-                // Ganti isi halaman dengan respons dari PHP
                 document.body.innerHTML = xhr.responseText;
             } else {
                 progressText.innerText = 'Upload failed!';
