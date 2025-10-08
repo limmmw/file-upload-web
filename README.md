@@ -56,6 +56,8 @@ If file uploads fail with a "Permission denied" error, run:
 docker-compose down -v
 sudo chown -R yourusername:www-data /home/yourusername/Server
 sudo chmod -R 775 /home/yourusername/Server
+sudo chmod -R 775 src/
+sudo chown -R yourusername:www-data src/
 docker-compose up -d
 ```
 If still failing, try temporarily with full access:
