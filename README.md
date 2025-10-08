@@ -33,7 +33,7 @@ Change this line:
       - "8080:80"
   volumes:
       - ./src:/var/www/html
-      - /home/yourusername/Server:/var/www/html/uploads #Replace ``yourusername`` with your actual Linux username.
+      - /home/yourusername/Server:/var/www/html/uploads #Replace ``yourusername`` with your actual Linux username directory.
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
 ```
 And:
@@ -43,6 +43,7 @@ And:
     volumes:
       - ./src:/var/www/html
       - /home/yourusername/Server:/var/www/html/uploads #Replace ``yourusername`` with your actual Linux username.
+      - ./composer.json:/var/www/html/composer.json
 ```
 Make sure the path /home/yourusername/Server matches what you created earlier.
 
