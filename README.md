@@ -33,7 +33,7 @@ Change this line:
       - "8080:80"
   volumes:
       - ./src:/var/www/html
-      - /home/yourusername/Server:/var/www/html/uploads #Replace ``yourusername`` with your actual Linux username directory.
+      - /home/yourusername/Server:/var/www/html/uploads #Replace ``yourusername`` with your actual Linux username.
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
 ```
 And:
@@ -43,7 +43,6 @@ And:
     volumes:
       - ./src:/var/www/html
       - /home/yourusername/Server:/var/www/html/uploads #Replace ``yourusername`` with your actual Linux username.
-      - ./composer.json:/var/www/html/composer.json
 ```
 Make sure the path /home/yourusername/Server matches what you created earlier.
 
@@ -57,6 +56,8 @@ If file uploads fail with a "Permission denied" error, run:
 docker-compose down -v
 sudo chown -R yourusername:www-data /home/yourusername/Server
 sudo chmod -R 775 /home/yourusername/Server
+sudo chmod -R 775 src/
+sudo chown -R yourusername:www-data src/
 docker-compose up -d
 ```
 If still failing, try temporarily with full access:
