@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Upload File</title>
-    <link rel="icon" type="image/png" href="assets/favicon1.png">
+    <link rel="icon" type="image/png" href="/assets/favicon1.png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap');
 
