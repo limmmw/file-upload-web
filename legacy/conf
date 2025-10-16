@@ -2,7 +2,7 @@ server {
     listen 80;
     server_name sub.halim.ng;
     index index.php index.html index.htm default.php default.htm default.html;
-    root /www/wwwroot/sub.halim.ng;
+    root /www/wwwroot/sub.halim.ng/src;
 
     client_max_body_size 1024M;
 
