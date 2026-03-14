@@ -279,9 +279,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="credit">Developed by limmmw®</div>
             <div class="credit2">Contact Me</div>
             <div class="credit3"> 
-                <a href="https://github.com/limmmw" style="color: #00c9ff; text-decoration: underline;">Github.com/limmmw</a> | 
-                <a href="https://nightcoding.my.id" style="color: #00c9ff; text-decoration: underline;">nightcoding.my.id</a> |
-                <a href="https://instagram.com/limmmw" style="color: #00c9ff; text-decoration: underline;">Instagram@limmmw</a>
+                <a href="https://github.com/limmmw" target="_blank" style="color: #00c9ff; text-decoration: underline;">Github.com/limmmw</a> | 
+                <a href="https://nightcoding.my.id" target="_blank" style="color: #00c9ff; text-decoration: underline;">nightcoding.my.id</a> |
+                <a href="https://instagram.com/limmmw" target="_blank" style="color: #00c9ff; text-decoration: underline;">Instagram@limmmw</a>
             </div>
     </div> 
     <script>
